@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="<?php echo base_url('resources/admin/images/favicon.png');?>" type="image/png">
+  <title>管理员登录页</title>
+
+  <link href="<?php echo base_url('resources/admin/css/style.default.css');?>" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="<?php echo base_url('resources/admin/js/html5shiv.js');?>"></script>
+  <script src="<?php echo base_url('resources/admin/js/respond.min.js');?>"></script>
+  <![endif]-->
+</head>
+
+<body class="signin">
+
+<section>
+  
+    <div class="signinpanel">
+        
+        <div class="row">
+            
+            <div class="col-md-7">
+                
+                <div class="signin-info">
+                    <div class="logopanel">
+                        <h1><span>[</span> Video@ZJGSU <span>]</span></h1>
+                    </div><!-- logopanel -->
+                
+                    <div class="mb20"></div>
+                
+                    <h5><strong>浙江工商大学－毕业设计－在线视频用户行为跟踪与分析</strong></h5>
+                    <ul>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 指导老师：王家乐</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 软件1201班 金灿</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 学号：1212800217</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 超级管理员账号：admin&nbsp;密码:admin</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 普通管理员账号：jc&nbsp;密码:jcjcjc</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 更多测试数据参考附录</li>
+                    </ul>
+                    <div class="mb20"></div>
+                </div><!-- signin0-info -->
+            
+            </div><!-- col-sm-7 -->
+            
+            <div class="col-md-5">
+                
+                <form method="post" action="<?php echo site_url('admin/Admin/dologin');?>">
+                    <h4 class="nomargin">管理员登录</h4>
+                    <p class="mt5 mb20">Login to access your account.</p>
+                
+                    <input type="text" class="form-control uname" placeholder="Username" name='username' maxlength='40'/>
+                    <input type="password" class="form-control pword" placeholder="Password" name='password' maxlength='16'/>
+                    <small style='color:red'>&nbsp;<?php echo $error;?></small>
+                    <button class="btn btn-success btn-block">登录</button>         
+                </form>
+            </div><!-- col-sm-5 -->
+            
+        </div><!-- row -->
+        
+        <div class="signup-footer">
+            <div class="pull-left">
+               <p>毕业设计@浙江工商大学－在线视频用户行为跟踪与分析BY金灿</p>
+            </div>
+        </div>
+        
+    </div><!-- signin -->
+  
+</section>
+
+
+<script src="<?php echo base_url('resources/admin/js/jquery-1.11.1.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/jquery-migrate-1.2.1.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/bootstrap.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/modernizr.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/jquery.sparkline.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/jquery.cookies.js');?>"></script>
+
+<script src="<?php echo base_url('resources/admin/js/toggles.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/retina.min.js');?>"></script>
+
+<script src="<?php echo base_url('resources/admin/js/custom.js');?>"></script>
+<script>
+    jQuery(document).ready(function(){
+        
+        // Please do not use the code below
+        // This is for demo purposes only
+        var c = jQuery.cookie('change-skin');
+        if (c && c == 'greyjoy') {
+            jQuery('.btn-success').addClass('btn-orange').removeClass('btn-success');
+        } else if(c && c == 'dodgerblue') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        } else if (c && c == 'katniss') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        }
+    });
+</script>
+
+</body>
+</html>

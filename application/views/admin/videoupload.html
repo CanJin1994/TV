@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="<?php echo base_url('resources/admin/images/favicon.png');?>" type="image/png">
+    <title>
+        后台管理－上传视频
+    </title>
+    <link rel="stylesheet" href="<?php echo base_url('resources/admin/css/style.default.css');?>" />
+    <link rel="stylesheet" href="<?php echo base_url('resources/admin/css/bootstrap-timepicker.min.css');?>" />
+    <link rel="stylesheet" href="<?php echo base_url('resources/admin/css/jquery.tagsinput.css');?>" />
+    <link rel="stylesheet" href="<?php echo base_url('resources/admin/css/colorpicker.css');?>" />
+    <link rel="stylesheet" href="<?php echo base_url('resources/admin/css/dropzone.css');?>" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media
+queries -->
+<!--[if lt IE 9]>
+    <script src="<?php echo base_url('resources/admin/js/html5shiv.js');?>">
+    </script>
+    <script src="<?php echo base_url('resources/admin/js/respond.min.js');?>">
+    </script>
+<![endif]-->
+</head>
+    
+    <body>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <i class="fa fa-spinner fa-spin">
+                </i>
+            </div>
+        </div>
+        <section>
+            <div class="leftpanel">
+                <div class="logopanel">
+                    <h1><span>[</span>Video@ZJGSU<span>]</span></h1>
+                </div><!-- logopanel -->
+                <!-- logopanel -->
+                <div class="leftpanelinner">
+                    <!-- This is only visible to small devices -->
+                    <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                    <div class="media userlogged">
+                        <img alt="" src="<?php echo base_url('resources/admin/images/photos/loggeduser.png');?>" class="media-object">
+                        <div class="media-body">
+                            <h4><?php echo $_SESSION['login_admin_username'];?></h4>
+                            <span>在线视频跟踪系统后台</span>
+                        </div>
+                    </div>
+                    <h5 class="sidebartitle actitle">账户设置</h5>
+                    <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+                      <li><a href=""><i class="fa fa-cog"></i> <span>账户设置</span></a></li>
+                      <li><a href="<?php echo site_url('admin/Admin/logout');?>"><i class="fa fa-sign-out"></i> <span>退出登录</span></a></li>
+                    </ul>
+                    </div>
+                     <ul class="nav nav-pills nav-stacked nav-bracket">
+                        <li class="active"><a href="<?php echo site_url('admin/Manage/index');?>"><i class="fa fa-home"></i> <span>管理中心</span></a></li>
+                        <li class="nav-parent"><a href=""><i class="fa fa-edit"></i> <span>视频管理</span></a>
+                          <ul class="children">
+                            <li><a href="<?php echo site_url('admin/Manage/videolist');?>"><i class="fa fa-caret-right"></i> 视频列表</a></li>
+                            <li><a href="<?php echo site_url('admin/Manage/videoupload');?>"><i class="fa fa-caret-right"></i> 上传视频</a></li>
+                            <li><a href=""><i class="fa fa-caret-right"></i> 视频分析</a></li> 
+                          </ul>
+                        </li>
+                        <li class="nav-parent"><a href=""><i class="fa fa-file-text"></i> <span>用户管理</span></a>
+                          <ul class="children">
+                            <li><a href=""><i class="fa fa-caret-right"></i> 用户统计</a></li>
+                            <li><a href=""><i class="fa fa-caret-right"></i> 流量统计</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                    <div class="infosummary">
+                        <h5 class="sidebartitle">
+                            Information Summary
+                        </h5>
+                        <ul>
+                            
+                            <li>
+                                <div class="datainfo">
+                                    <span class="text-muted">
+                                        Memory Usage
+                                    </span>
+                                    <h4>
+                                        32.2%
+                                    </h4>
+                                </div>
+                                <div id="sidebar-chart5" class="chart">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- infosummary -->
+                </div>
+                <!-- leftpanelinner -->
+            </div>
+            <!-- leftpanel -->
+            <div class="mainpanel">
+                <div class="headerbar">
+                    <a class="menutoggle">
+                        <i class="fa fa-bars">
+                        </i>
+                    </a>
+                     <div class="header-right">
+                        <ul class="headermenu">
+                          <li>
+
+                            <div class="btn-group">
+
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                              <img src="<?php echo base_url('resources/admin/images/photos/loggeduser.png');?>" alt="" />
+                                <?php echo $_SESSION['login_admin_username'];?>
+                                <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                                <li><a href="#"><i class="glyphicon glyphicon-cog"></i>账户设置</a></li>
+                                <li><a href="<?php echo site_url('admin/Admin/logout');?>"><i class="glyphicon glyphicon-log-out"></i>退出登录</a></li>
+                              </ul>
+                            </div>
+                          </li>
+                        </ul>
+                      </div><!-- header-right -->
+                </div>
+                <!-- headerbar -->
+                <div class="pageheader">
+                    <h2>
+                        <i class="fa fa-edit">
+                        </i>
+                        视频上传
+                        <span>
+                            优先支持mp4格式
+                        </span>
+                    </h2>
+                </div>
+                <div class="contentpanel">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                上传说明
+                            </h4>
+                            <p>
+                                上传文件限制：
+                                <code>
+                                    2GB
+                                </code>
+                                &nbsp;&nbsp;&nbsp;&nbsp;支持文件格式：
+                                <code>
+                                    MP4/OGG/WEBM
+                                </code>
+                            </p>
+                        </div>
+                        <div class="panel-body panel-body-nopadding">
+                        <div class="form-horizontal form-bordered"><?php echo form_open_multipart('admin/Manage/do_upload');?>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">
+                                        视频标题
+                                    </label>
+                                    <div class="col-sm-7">
+                                        <input type="text" placeholder="" class="form-control" name="video_name"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">
+                                        视频描述
+                                    </label>
+                                    <div class="col-sm-7">
+                                        <textarea id="autoResizeTA" class="form-control" rows="5" name="video_desc"></textarea>
+                                    </div>
+                                </div>
+                            
+                                <!-- <div class="form-group">
+                                    <label class="col-sm-3 control-label">
+                                        视频首页图片
+                                    </label>
+                                    <div class="col-sm-7">
+                                        <input type="file" name="userfile" id="file"  class="form-control" />
+                                    </div>
+                                </div> -->
+                                <div class="form-group">
+                                <label for="file" class="col-sm-3 control-label">添加视频文件</label>
+                                    <div class="col-sm-7">
+                                        <input type="file" name="userfile" id="file"  class="form-control" />
+                                    </div>
+                                </div>  
+                                <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label">视频标签</label>
+                                <div class="col-sm-7">
+                                <input name="tags" id="tags" class="form-control" value="" />
+                                </div>
+                                </div>
+                                -->
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <button class="btn btn-primary">
+                                                上传视频
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div style="text-align:center;">
+            <p>毕业设计@浙江工商大学－在线视频用户行为跟踪与分析BY金灿</p>
+        </div>  
+        <script src="<?php echo base_url('resources/admin/js/jquery-1.11.1.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery-migrate-1.2.1.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery-ui-1.10.3.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/bootstrap.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/modernizr.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery.sparkline.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/toggles.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/retina.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery.cookies.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery.autogrow-textarea.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/bootstrap-timepicker.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery.maskedinput.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery.tagsinput.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/jquery.mousewheel.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/select2.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/dropzone.min.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/colorpicker.js');?>">
+        </script>
+        <script src="<?php echo base_url('resources/admin/js/custom.js');?>">
+        </script>
+        <script>
+            jQuery(document).ready(function() {
+
+                "use strict";
+
+                // Tags Input
+                jQuery('#tags').tagsInput({
+                    width: 'auto'
+                });
+
+                // Select2
+                jQuery(".select2").select2({
+                    width: '100%'
+                });
+
+                // Textarea Autogrow
+                jQuery('#autoResizeTA').autogrow();
+
+                // Color Picker
+                if (jQuery('#colorpicker').length > 0) {
+                    jQuery('#colorSelector').ColorPicker({
+                        onShow: function(colpkr) {
+                            jQuery(colpkr).fadeIn(500);
+                            return false;
+                        },
+                        onHide: function(colpkr) {
+                            jQuery(colpkr).fadeOut(500);
+                            return false;
+                        },
+                        onChange: function(hsb, hex, rgb) {
+                            jQuery('#colorSelector span').css('backgroundColor', '#' + hex);
+                            jQuery('#colorpicker').val('#' + hex);
+                        }
+                    });
+                }
+
+                // Color Picker Flat Mode
+                jQuery('#colorpickerholder').ColorPicker({
+                    flat: true,
+                    onChange: function(hsb, hex, rgb) {
+                        jQuery('#colorpicker3').val('#' + hex);
+                    }
+                });
+
+                // Date Picker
+                jQuery('#datepicker').datepicker();
+
+                jQuery('#datepicker-inline').datepicker();
+
+                jQuery('#datepicker-multiple').datepicker({
+                    numberOfMonths: 3,
+                    showButtonPanel: true
+                });
+
+                // Spinner
+                var spinner = jQuery('#spinner').spinner();
+                spinner.spinner('value', 0);
+
+                // Input Masks
+                jQuery("#date").mask("99/99/9999");
+                jQuery("#phone").mask("(999) 999-9999");
+                jQuery("#ssn").mask("999-99-9999");
+
+                // Time Picker
+                jQuery('#timepicker').timepicker({
+                    defaultTIme: false
+                });
+                jQuery('#timepicker2').timepicker({
+                    showMeridian: false
+                });
+                jQuery('#timepicker3').timepicker({
+                    minuteStep: 15
+                });
+
+            });
+        </script>
+        
+    </body>
+</html>

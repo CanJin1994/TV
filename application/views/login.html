@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="shortcut icon" href="<?php echo base_url('resources/admin/images/favicon.png');?>" type="image/png">
-  <title>用户注册页面</title>
+  <title>用户登录页面</title>
 
   <link href="<?php echo base_url('resources/admin/css/style.default.css');?>" rel="stylesheet">
 
@@ -38,9 +38,9 @@
                     
                     <div class="feat-list">
                         <i class="fa fa-wrench"></i>
-                        <h4 class="text-success">注册功能－参数说明</h4>
-                        <p>1.昵称允许重复,长度10字符。</p>
-                        <p>2.账户未使用AJAX验证,可以改进</p>
+                        <h4 class="text-success">登录功能－参数说明</h4>
+                        <p>1.用户名长度40字符</p>
+                        <p>2.密码长度16字符</p>
                         <p>3.密码使用SHA1加密方式</p>
                     </div>
                 
@@ -50,29 +50,20 @@
             
             <div class="col-md-6">
                 
-                <form method="post" action="<?php echo site_url('admin/User/doregister');?>">
+                <form method="post" action="<?php echo site_url('admin/User/dologin');?>">
                     
-                    <h3 class="nomargin">用户注册</h3>
-                    <p class="mt5 mb20">已有账户? <a href="<?php echo site_url('admin/User/login');?>"><strong>登录</strong></a></p>
-                
-                    <div class="mb10">
-                        <label class="control-label">昵称</label>
-                        <input type="text" class="form-control" name="user_nickname" maxlength="10"/>
-                    </div>
+                    <h3 class="nomargin">用户登录</h3>
+                    <p class="mt5 mb20">没有账户? <a href="<?php echo site_url('admin/User/register');?>"><strong>立即注册</strong></a></p>
                     <div class="mb10">
                         <label class="control-label">用户名</label>
-                        <input type="text" class="form-control" name="username"/>
+                        <input type="text" class="form-control" maxlength="40" name="username"/>
                     </div>
                     <div class="mb10">
                         <label class="control-label">密码</label>
-                        <input type="password" class="form-control" name="password"/>
-                    </div>
-                    <div class="mb10">
-                        <label class="control-label">确认密码</label>
-                        <input type="password" class="form-control" name="password1"/>
-                    </div>            
-                    <br />
-                    <button class="btn btn-success btn-block">注册</button>     
+                        <input type="password" class="form-control" maxlength="16" name="password"/>
+                    </div>     
+                    <label class="control-label" style="color:red"><?php echo $error;?></label>
+                    <button class="btn btn-success btn-block">登录</button>     
                 </form>
             </div><!-- col-sm-6 -->
             

@@ -15,7 +15,7 @@ class Show extends CI_Controller{
 	public function player(){
 		$this->load->view('player.html');
 	}
-	public function more(){
+	public function more($category = ""){
     	$this->load->view('more.html');
     }
 

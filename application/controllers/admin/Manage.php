@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 //后台管理控制器
 class Manage extends CI_Controller{
 	//构造函数
@@ -12,23 +13,25 @@ class Manage extends CI_Controller{
         $this->load->helper('form'); 
         $this->load->model('Video_model');
         #激活分析器以调试程序
-        $this->output->enable_profiler(TRUE);
+        //$this->output->enable_profiler(TRUE);
     }
-    //后台主页
+    
+    //显示后台主页
 	public function index(){
 		$this->load->view('admin/main.html');
 	}
 
-    //视频列表
+    //显示视频列表页面
 	public function videolist(){
         $data['videos'] = $this->Video_model->get_videolist();
 		$this->load->view('admin/videolist.html',$data);
 	}
 
-    //视频上传功能
+    //显示视频上传页面
 	public function videoupload(){
 		$this->load->view('admin/videoupload.html');
     }
+    //视频上传操作
 	public function do_upload(){
 		$config['upload_path']      = './upload/';
         $config['file_ext_tolower'] = TRUE;

@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="<?php echo base_url('resources/admin/images/favicon.png');?>" type="image/png">
+  <title>用户注册页面</title>
+
+  <link href="<?php echo base_url('resources/admin/css/style.default.css');?>" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="<?php echo base_url('resources/admin/js/html5shiv.js');?>"></script>
+  <script src="<?php echo base_url('resources/admin/js/respond.min.js');?>"></script>
+  <![endif]-->
+</head>
+
+<body class="signin">
+<section>
+  
+    <div class="signuppanel">
+        
+        <div class="row">
+            
+            <div class="col-md-6">
+                
+                <div class="signup-info">
+                    <div class="logopanel">
+                        <h1><span>ZJGSU在线视频网站</span></h1>
+                    </div><!-- logopanel -->
+                
+                    <div class="mb20"></div>
+                
+                    <h5><strong>Bootstrap 3 Admin Template!</strong></h5>
+                    <p>Bracket is a theme that is perfect if you want to create your own content management, monitoring or any other system for your project.</p>
+                    <p>Below are some of the benefits you can have when purchasing this template.</p>
+                    <div class="mb20"></div>
+                    
+                    <div class="feat-list">
+                        <i class="fa fa-wrench"></i>
+                        <h4 class="text-success">Easy to Customize</h4>
+                        <p>Bracket is made using Bootstrap 3 so you can easily customize any element of this template following the structure of Bootstrap 3.</p>
+                    </div>
+                
+                </div><!-- signup-info -->
+            
+            </div><!-- col-sm-6 -->
+            
+            <div class="col-md-6">
+                
+                <form method="post" action="index.html">
+                    
+                    <h3 class="nomargin">用户注册</h3>
+                    <p class="mt5 mb20">已有账户? <a href="<?php echo site_url('admin/User/login');?>"><strong>登录</strong></a></p>
+                
+                    <div class="mb10">
+                        <label class="control-label">昵称</label>
+                        <input type="text" class="form-control" maxlength="10"/>
+                    </div>
+                    <div class="mb10">
+                        <label class="control-label">用户名</label>
+                        <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb10">
+                        <label class="control-label">密码</label>
+                        <input type="password" class="form-control" />
+                    </div>
+                    <div class="mb10">
+                        <label class="control-label">确认密码</label>
+                        <input type="password" class="form-control" />
+                    </div>            
+                    <br />
+                    
+                    <button class="btn btn-success btn-block">注册</button>     
+                </form>
+            </div><!-- col-sm-6 -->
+            
+        </div><!-- row -->
+        
+        <div class="signup-footer">
+            <div style="text-align:center;">
+               <p>毕业设计@浙江工商大学－在线视频用户行为跟踪与分析BY金灿</p>
+            </div>
+        </div>
+        
+    </div><!-- signuppanel -->
+  
+</section>
+
+
+<script src="<?php echo base_url('resources/admin/js/jquery-1.11.1.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/jquery-migrate-1.2.1.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/bootstrap.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/modernizr.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/jquery.sparkline.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/jquery.cookies.js');?>"></script>
+
+<script src="<?php echo base_url('resources/admin/js/toggles.min.js');?>"></script>
+<script src="<?php echo base_url('resources/admin/js/retina.min.js');?>"></script>
+
+<script src="<?php echo base_url('resources/admin/js/select2.min.js');?>"></script>
+
+<script src="<?php echo base_url('resources/admin/js/custom.js');?>"></script>
+<script>
+    jQuery(document).ready(function(){
+        
+        jQuery(".select2").select2({
+            width: '100%',
+            minimumResultsForSearch: -1
+        });
+        
+        jQuery(".select2-2").select2({
+            width: '100%'
+        });
+        
+        
+        // Please do not use the code below
+        // This is for demo purposes only
+        var c = jQuery.cookie('change-skin');
+        if (c && c == 'greyjoy') {
+            jQuery('.btn-success').addClass('btn-orange').removeClass('btn-success');
+        } else if(c && c == 'dodgerblue') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        } else if (c && c == 'katniss') {
+            jQuery('.btn-success').addClass('btn-primary').removeClass('btn-success');
+        }
+        
+    });
+</script>
+
+</body>
+</html>

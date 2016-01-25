@@ -12,7 +12,14 @@ class Show extends CI_Controller{
     
     //显示主页
 	public function index(){
-		$this->load->view('main.html');
+		//第一个参数cate_id 第二个参数显示条数
+		$data['varietys'] = $this->Video_model->get_limit_information(1,5);
+		$data['tvs'] = $this->Video_model->get_limit_information(2,5);
+		$data['movies'] = $this->Video_model->get_limit_information(3,5);
+		$data['cartoons'] = $this->Video_model->get_limit_information(4,5);
+		$data['sports'] = $this->Video_model->get_limit_information(5,5);
+		$data['others'] = $this->Video_model->get_limit_information(6,5);
+		$this->load->view('main.html',$data);
 	}
 	//展示一个视频
 	public function play($video_id){	

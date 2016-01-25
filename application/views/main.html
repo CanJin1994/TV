@@ -170,11 +170,9 @@
   <li role="presentation"><a href="<?php echo site_url('Show/more/variety');?>">更多精彩综艺>></a></li>
 </ul>
 <div class="imgline">
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/xiongdi.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/17sui.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/jsll.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
+    <?php foreach($varietys as $variety) :?>
+    <a href="<?php echo site_url('Show/play').'/'.$variety['video_id'];?>"><img src="<?php echo base_url('upload/images').'/'.$variety['video_img_name'];?>" class="img-thumbnail"></a>
+    <?php endforeach;?>
 </div>
 </div>
 <!--图片行结束-->
@@ -185,11 +183,9 @@
   <li role="presentation"><a href="<?php echo site_url('Show/more/tv');?>">更多精彩电视剧>></a></li>
 </ul>
 <div class="imgline">
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/xiongdi.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/17sui.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/jsll.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
+    <?php foreach($tvs as $tv) :?>
+    <a href="<?php echo site_url('Show/play').'/'.$tv['video_id'];?>"><img src="<?php echo base_url('upload/images').'/'.$tv['video_img_name'];?>" class="img-thumbnail"></a>
+    <?php endforeach;?>
 </div>
 </div>
 <!--图片行结束-->
@@ -200,11 +196,9 @@
   <li role="presentation"><a href="<?php echo site_url('Show/more/movie');?>">更多精彩电影>></a></li>
 </ul>
 <div class="imgline">
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/xiongdi.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/17sui.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/jsll.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
+    <?php foreach($movies as $movie) :?>
+    <a href="<?php echo site_url('Show/play').'/'.$movie['video_id'];?>"><img src="<?php echo base_url('upload/images').'/'.$movie['video_img_name'];?>" class="img-thumbnail"></a>
+    <?php endforeach;?>
 </div>
 </div>
 <!--图片行结束-->
@@ -215,11 +209,9 @@
   <li role="presentation"><a href="<?php echo site_url('Show/more/cartoon');?>">更多精彩动漫>></a></li>
 </ul>
 <div class="imgline">
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/xiongdi.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/17sui.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/jsll.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
+    <?php foreach($cartoons as $cartoon) :?>
+    <a href="<?php echo site_url('Show/play').'/'.$cartoon['video_id'];?>"><img src="<?php echo base_url('upload/images').'/'.$cartoon['video_img_name'];?>" class="img-thumbnail"></a>
+    <?php endforeach;?>
 </div>
 </div>
 <!--图片行结束-->
@@ -230,11 +222,9 @@
   <li role="presentation"><a href="<?php echo site_url('Show/more/sport');?>">更多体育节目>></a></li>
 </ul>
 <div class="imgline">
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/xiongdi.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/17sui.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/jsll.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
+    <?php foreach($sports as $sport) :?>
+    <a href="<?php echo site_url('Show/play').'/'.$sport['video_id'];?>"><img src="<?php echo base_url('upload/images').'/'.$sport['video_img_name'];?>" class="img-thumbnail"></a>
+    <?php endforeach;?>
 </div>
 </div>
 <!--图片行结束-->
@@ -245,11 +235,9 @@
   <li role="presentation"><a href="<?php echo site_url('Show/more/other');?>">更多精彩节目>></a></li>
 </ul>
 <div class="imgline">
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/xiongdi.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/17sui.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/jsll.jpg');?>" class="img-thumbnail"></a>
-    <a href="<?php echo site_url('Show/play');?>"><img src="<?php echo base_url('resources/index/images/bksy.jpg');?>" class="img-thumbnail"></a>
+    <?php foreach($others as $other) :?>
+    <a href="<?php echo site_url('Show/play').'/'.$other['video_id'];?>"><img src="<?php echo base_url('upload/images').'/'.$other['video_img_name'];?>" class="img-thumbnail"></a>
+    <?php endforeach;?>
 </div>
 </div>
 <!--图片行结束-->

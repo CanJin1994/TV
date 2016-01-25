@@ -51,7 +51,7 @@ class User extends CI_Controller{
         $password1 = $this->input->post('password1',TRUE);
         if($data['user_nickname']){
             if($data['password'] == $password1){
-                if($this->User_model->adduser($data)){
+                if($this->User_model->add_user($data)){
                     if($this->User_model->dologin($data)){
                          redirect('Show/index');
                     }

@@ -36,7 +36,7 @@
   <div class="leftpanel">
     
     <div class="logopanel">
-        <h1><span>[</span>Video@ZJGSU<span>]</span></h1>
+        <h1><span>ZJGSU网站后台</span></h1>
     </div><!-- logopanel -->
     
     <div class="leftpanelinner">
@@ -129,9 +129,9 @@
                     <thead>
                       <tr>
                         <th>视频ID</th>
-                        <th>视频标题</th>
+                        <th>标题</th>
+                        <th>分类</th>
                         <th>上传时间</th>
-                        <th>作者ID</th>
                         <th>点播次数</th>
                         <th>编辑</th>
                         <th>删除</th>
@@ -142,8 +142,8 @@
                       <tr>
                         <td><?php echo $video['video_id']?></td>
                         <td><?php echo $video['video_name']?></td>
+                        <td><?php echo $video['video_cate_name']?></td>
                         <td><?php $datestring = '%Y.%m.%d'; echo mdate($datestring, $video['video_create_time']);?></td>
-                        <td><?php echo $video['video_author_id']?></td>
                         <td><?php echo $video['video_plays']?></td>
                         <td>编辑</td>
                         <td>删除</td>
@@ -159,7 +159,6 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">视频列表</h3>
-          <p>DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, which will add advanced interaction controls to any HTML table.</p>
         </div>
         <div class="panel-body">
           <div class="table-responsive">
@@ -167,9 +166,9 @@
               <thead>
                  <tr>
                     <th>视频ID</th>
-                    <th>视频标题</th>
+                    <th>标题</th>
+                    <th>分类</th>
                     <th>上传时间</th>
-                    <th>作者ID</th>
                     <th>点播次数</th>
                     <th>编辑</th>
                     <th>删除</th>
@@ -178,11 +177,11 @@
               <tbody>
                  <?php foreach($videos as $video):?>
                       <tr>
-                        <td><?php echo $video['video_id']?></td>
-                        <td><?php echo $video['video_name']?></td>
+                        <td><?php echo $video['video_id'];?></td>
+                        <td><?php echo $video['video_name'];?></td>
+                        <td><?php echo $video['video_cate_name'];?></td>
                         <td><?php $datestring = '%Y.%m.%d'; echo mdate($datestring, $video['video_create_time']);?></td>
-                        <td><?php echo $video['video_author_id']?></td>
-                        <td>7888</td>
+                        <td><?php echo $video['video_plays']; ?></td>
                         <td>编辑</td>
                         <td>删除</td>
                       </tr>

@@ -33,29 +33,46 @@ class Manage extends CI_Controller{
     }
     //视频上传操作
 	public function do_upload(){
-		$config['upload_path']      = './upload/';
+        //上传图片取得图片存储路径
+        $config['upload_path']      = './upload/images/';
         $config['file_ext_tolower'] = TRUE;
-         $config['allowed_types']    = 'mp4|ogg|webm';
-        $config['max_size']     = 1024*1024*2;
-
+        $config['allowed_types']    = 'png|jpg|gif';
+        $config['max_size']     = 1024*2;
         $this->load->library('upload', $config);
-
-        if (! $this->upload->do_upload('userfile'))
-        {
+        $this->upload->initialize($config);
+        if (! $this->upload->do_upload('userfile1'))
+        {   
+            echo "图片上传失败" ;die;
+        }
+        else
+        {   
+            $data['video_img_name'] = $this->upload->data('file_name');
+        }
+        //上传视频取得视频存储路径，并插入数据库
+		$config['upload_path']      = './upload/video/';
+        $config['file_ext_tolower'] = TRUE;
+        $config['allowed_types']    = 'mp4|ogg|webm';
+        $config['max_size']     = 1024*1024*2;
+        $this->upload->initialize($config);
+        if (! $this->upload->do_upload('userfile2'))
+        {   
+            //失败最好删除1的文件
             $error = array('error' => $this->upload->display_errors());die;
         }
         else
-        {
+        {   
+            $data['video_cate_id'] = $this->input->post('video_cate_id');
             $data['video_name'] = $this->input->post('video_name',TRUE);
             $data['video_desc'] = $this->input->post('video_desc',TRUE);
-            $data['video_path'] = $this->upload->data('full_path');
+            $data['video_filename'] = $this->upload->data('file_name');
             $data['video_author_id'] = $this->session->userdata('login_admin_id');
             $data['video_create_time'] = time();
             if($this->Video_model->add_video($data)){
-                redirect('admin/Manage/index');
+                redirect('admin/Manage/videoupload');
             }else{
                 echo '添加视频错误';die;
             }
         }
 	}
+
 }

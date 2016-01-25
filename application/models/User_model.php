@@ -28,7 +28,7 @@ class User_model extends CI_Model{
         $this->session->unset_userdata('login_user_nickname');
     }
 
-    public function adduser($data){
+    public function add_user($data){
         $query = $this->db->where('username',$data['username'])->get(SELF::TABLE_USER);
         $row = $query->row();
         if(isset($row)){

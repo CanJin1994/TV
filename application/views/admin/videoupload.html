@@ -36,7 +36,7 @@ queries -->
         <section>
             <div class="leftpanel">
                 <div class="logopanel">
-                    <h1><span>[</span>Video@ZJGSU<span>]</span></h1>
+                    <h1><span>ZJGSU网站后台</span></h1>
                 </div><!-- logopanel -->
                 <!-- logopanel -->
                 <div class="leftpanelinner">
@@ -129,7 +129,7 @@ queries -->
                         </i>
                         视频上传
                         <span>
-                            优先支持mp4格式
+                            推荐mp4格式
                         </span>
                     </h2>
                 </div>
@@ -140,7 +140,17 @@ queries -->
                                 上传说明
                             </h4>
                             <p>
-                                上传文件限制：
+                                图片限制：
+                                <code>
+                                    2MB
+                                </code>
+                                &nbsp;&nbsp;&nbsp;&nbsp;支持文件格式：
+                                <code>
+                                    png/jpg/gif
+                                </code>
+                            </p>
+                            <p>
+                                视频限制：
                                 <code>
                                     2GB
                                 </code>
@@ -162,6 +172,22 @@ queries -->
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">
+                                        视频分类
+                                    </label>
+                                    <div class="col-sm-7">
+                                        <select class="form-control" style="margin-top:0.8em;" name="video_cate_id">
+                                          <option></option>
+                                          <option value="1">综艺</option>
+                                          <option value="2">电视剧</option>
+                                          <option value="3">电影</option>
+                                          <option value="4">动漫</option>
+                                          <option value="5">体育</option>
+                                          <option value="6">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">
                                         视频描述
                                     </label>
                                     <div class="col-sm-7">
@@ -169,18 +195,18 @@ queries -->
                                     </div>
                                 </div>
                             
-                                <!-- <div class="form-group">
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label">
                                         视频首页图片
                                     </label>
                                     <div class="col-sm-7">
-                                        <input type="file" name="userfile" id="file"  class="form-control" />
+                                        <input type="file" name="userfile1" id="file"  class="form-control" />
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="form-group">
                                 <label for="file" class="col-sm-3 control-label">添加视频文件</label>
                                     <div class="col-sm-7">
-                                        <input type="file" name="userfile" id="file"  class="form-control" />
+                                        <input type="file" name="userfile2" id="file"  class="form-control" />
                                     </div>
                                 </div>  
                                 <!-- <div class="form-group">

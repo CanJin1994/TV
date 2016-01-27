@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class User_model extends CI_Model{
 
 	const TABLE_USER = 'user';
-    
+    //验证用户登录
     public function dologin($data){
         $query = $this->db->where('username',$data['username'])->get(SELF::TABLE_USER);
         $row = $query->row();
@@ -21,13 +21,13 @@ class User_model extends CI_Model{
             return FALSE;
         }
     }
-
+    //用户注销
     public function logout(){
         $this->session->unset_userdata('login_user_id');
         $this->session->unset_userdata('login_user_username');
         $this->session->unset_userdata('login_user_nickname');
     }
-
+    //创建新用户
     public function add_user($data){
         $query = $this->db->where('username',$data['username'])->get(SELF::TABLE_USER);
         $row = $query->row();

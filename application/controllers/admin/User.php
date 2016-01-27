@@ -53,7 +53,7 @@ class User extends CI_Controller{
             if($data['password'] == $password1){
                 if($this->User_model->add_user($data)){
                     if($this->User_model->dologin($data)){
-                         redirect('Show/index');
+                        redirect('Show/index');
                     }
                 }else{
                    echo "注册失败"; 

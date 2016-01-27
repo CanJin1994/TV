@@ -4,8 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Show extends CI_Controller{
 
 	public function __construct(){
-        parent::__construct();
+        parent::__Construct();
         $this->load->model('Video_model');
+        if(! isset($_SESSION['ip_address'])){
+        	$this->load->model('Ip_model');
+        	$flag = $this->Ip_model->add_ip($this->input->ip_address());
+        }
+        
          #激活分析器以调试程序
         //$this->output->enable_profiler(TRUE);
     }
@@ -25,6 +30,15 @@ class Show extends CI_Controller{
 	public function play($video_id){	
 		//视频存在播放，不存在返回主页
 		if($data = $this->Video_model->get_videoinformation($video_id)){
+			//调用视频资源，播放次数加一
+			$this->Video_model->add_plays($video_id);
+			//记录用户播放类型
+			if(isset($_SESSION['login_user_id'])){
+				$user_id = $_SESSION['login_user_id'];
+			}else{
+				$user_id = '0';
+			}
+			$this->Video_model->add_userprefer($user_id,$data['video_cate_id']);
     		$this->load->view('play.html',$data);
     	}else{
     		redirect('Show/index');
